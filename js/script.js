@@ -11,3 +11,20 @@ document.getElementById('contact-form').addEventListener('submit', function(even
             alert('Lỗi: ' + JSON.stringify(error));
         });
 });
+
+// Theme toggle logic
+const body = document.getElementById('body');
+const themeToggle = document.getElementById('theme-toggle');
+
+const currentTheme = localStorage.getItem('theme') || 'dark';
+if (currentTheme === 'light') {
+    body.classList.add('light-mode');
+    themeToggle.textContent = 'Toggle Dark';
+}
+
+themeToggle.addEventListener('click', () => {
+    body.classList.toggle('light-mode');
+    const theme = body.classList.contains('light-mode') ? 'light' : 'dark';
+    localStorage.setItem('theme', theme);
+    themeToggle.textContent = theme === 'light' ? 'Toggle Dark' : 'Toggle Theme';
+});

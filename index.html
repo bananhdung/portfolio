@@ -4,51 +4,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Bàn Anh Dũng</title>
-    <meta name="description" content="Portfolio của [Tên bạn], chuyên gia phân tích dữ liệu và IoT">
-    <meta name="keywords" content="portfolio, data analyst, IoT, [Tên bạn]">
+    <meta name="description" content="Portfolio của Ban Anh Dũng">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
     <script src="js/script.js"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+        }
+        .card-hover:hover {
+            transform: translateY(-5px) scale(1.02);
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .light-mode {
+            background-color: #f3f4f6;
+            color: #1f2937;
+        }
+        .light-mode .gradient-bg {
+            background: linear-gradient(135deg, #4b6cb7, #8e9aaf);
+        }
+        .light-mode .card-hover:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .light-mode a:hover {
+            color: #d97706;
+        }
+        .theme-toggle {
+            cursor: pointer;
+            padding: 8px 16px;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+        }
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, #d97706, #f59e0b);
+        }
+    </style>
 </head>
-<body class="bg-gray-100 font-sans">
+<body class="bg-gray-900 text-white font-sans" id="body">
     <!-- Header -->
-    <header class="bg-blue-600 text-white text-center py-10">
-        <h1 class="text-4xl font-bold">Portfolio của [Tên bạn]</h1>
-        <p class="mt-2">Data Analyst | IoT Developer</p>
-        <nav class="mt-4">
-            <a href="#about" class="text-white mx-4 hover:underline">Giới thiệu</a>
-            <a href="#projects" class="text-white mx-4 hover:underline">Dự án</a>
-            <a href="#activities" class="text-white mx-4 hover:underline">Hoạt động</a>
-            <a href="#contact" class="text-white mx-4 hover:underline">Liên hệ</a>
+    <header class="gradient-bg text-white text-center py-16">
+        <h1 class="text-5xl font-extrabold tracking-wide animate-pulse">Portfolio của Bàn Anh Dũng</h1>
+        <p class="mt-3 text-xl font-semibold">Data Analyst | IoT Developer</p>
+        <nav class="mt-6 flex justify-center items-center">
+            <a href="#about" class="text-white mx-4 hover:text-yellow-300 transition duration-300">Giới thiệu</a>
+            <a href="#projects" class="text-white mx-4 hover:text-yellow-300 transition duration-300">Dự án</a>
+            <a href="#skills" class="text-white mx-4 hover:text-yellow-300 transition duration-300">Kỹ năng</a>
+            <a href="#experience" class="text-white mx-4 hover:text-yellow-300 transition duration-300">Kinh nghiệm</a>
+            <a href="#activities" class="text-white mx-4 hover:text-yellow-300 transition duration-300">Hoạt động</a>
+            <a href="#contact" class="text-white mx-4 hover:text-yellow-300 transition duration-300">Liên hệ</a>
+            <div class="ml-6">
+                <span id="theme-toggle" class="theme-toggle">Toggle Theme</span>
+            </div>
         </nav>
     </header>
 
     <!-- About Me Module -->
-    <section id="about" class="container mx-auto py-10">
+    <section id="about" class="container mx-auto py-16">
         <div class="include" data-include="modules/about.html"></div>
     </section>
 
     <!-- Project Highlight Module -->
-    <section id="projects" class="container mx-auto py-10 bg-gray-200">
+    <section id="projects" class="container mx-auto py-16 bg-gray-800">
         <div class="include" data-include="modules/projects.html"></div>
     </section>
 
+    <!-- Skills Module -->
+    <section id="skills" class="container mx-auto py-16">
+        <div class="include" data-include="modules/skills.html"></div>
+    </section>
+
+    <!-- Experience Module -->
+    <section id="experience" class="container mx-auto py-16 bg-gray-800">
+        <div class="include" data-include="modules/experience.html"></div>
+    </section>
+
     <!-- Activity Module -->
-    <section id="activities" class="container mx-auto py-10">
+    <section id="activities" class="container mx-auto py-16">
         <div class="include" data-include="modules/activities.html"></div>
     </section>
 
     <!-- Contact Module -->
-    <section id="contact" class="container mx-auto py-10 bg-gray-200">
+    <section id="contact" class="container mx-auto py-16 bg-gray-800">
         <div class="include" data-include="modules/contact.html"></div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-blue-600 text-white text-center py-4">
-        <p>&copy; 2025 [Tên bạn]. All rights reserved.</p>
+    <footer class="gradient-bg text-white text-center py-6">
+        <p class="text-lg">© 2025 Bàn Anh Dũng. All rights reserved.</p>
     </footer>
 
-    <!-- Script to load modules -->
     <script>
         document.querySelectorAll('.include').forEach(element => {
             fetch(element.getAttribute('data-include'))
