@@ -1,16 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Ban Anh Dung</title>
+    <title>Portfolio - Bàn Anh Dũng</title>
+    <meta name="description" content="Portfolio của [Tên bạn], chuyên gia phân tích dữ liệu và IoT">
+    <meta name="keywords" content="portfolio, data analyst, IoT, [Tên bạn]">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+    <script src="js/script.js"></script>
 </head>
-<body>
-    
+<body class="bg-gray-100 font-sans">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white text-center py-10">
+        <h1 class="text-4xl font-bold">Portfolio của [Tên bạn]</h1>
+        <p class="mt-2">Data Analyst | IoT Developer</p>
+        <nav class="mt-4">
+            <a href="#about" class="text-white mx-4 hover:underline">Giới thiệu</a>
+            <a href="#projects" class="text-white mx-4 hover:underline">Dự án</a>
+            <a href="#activities" class="text-white mx-4 hover:underline">Hoạt động</a>
+            <a href="#contact" class="text-white mx-4 hover:underline">Liên hệ</a>
+        </nav>
+    </header>
 
+    <!-- About Me Module -->
+    <section id="about" class="container mx-auto py-10">
+        <div class="include" data-include="modules/about.html"></div>
+    </section>
 
+    <!-- Project Highlight Module -->
+    <section id="projects" class="container mx-auto py-10 bg-gray-200">
+        <div class="include" data-include="modules/projects.html"></div>
+    </section>
 
+    <!-- Activity Module -->
+    <section id="activities" class="container mx-auto py-10">
+        <div class="include" data-include="modules/activities.html"></div>
+    </section>
 
+    <!-- Contact Module -->
+    <section id="contact" class="container mx-auto py-10 bg-gray-200">
+        <div class="include" data-include="modules/contact.html"></div>
+    </section>
 
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white text-center py-4">
+        <p>&copy; 2025 [Tên bạn]. All rights reserved.</p>
+    </footer>
+
+    <!-- Script to load modules -->
+    <script>
+        document.querySelectorAll('.include').forEach(element => {
+            fetch(element.getAttribute('data-include'))
+                .then(response => response.text())
+                .then(data => element.innerHTML = data);
+        });
+    </script>
 </body>
 </html>
